@@ -1,3 +1,4 @@
+import 'package:flower_shop/constant/app_theme.dart';
 import 'package:flower_shop/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return  ScreenUtilInit(
       child: GetMaterialApp(   debugShowCheckedModeBanner: false,
       title: 'Splash Screen',
+      theme: AppTheme.customLightTheme,
       getPages: routes,),
     );
   }
