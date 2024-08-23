@@ -1,7 +1,9 @@
+import 'package:flower_shop/constant/app_color.dart';
+import 'package:flower_shop/constant/app_image.dart';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,231 +11,209 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
+      backgroundColor: Colors.white,
+      body: ListView(
+        children: [
+          Container(
+            height: 260.h,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+                color: AppColors.blue,
+                borderRadius:
+                    BorderRadius.only(bottomLeft: Radius.circular(60))),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Top icon row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      './assets/categories-1.svg',
-                      width: 32.w,
-                      height: 32.h,
-                    ),
-                  ],
+                SizedBox(
+                  height: 50.h,
                 ),
-                Spacer(),
                 // Logo and image
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      './assets/classic-white-peony-cream-beige-rose-and-ranunculus-flowers-eucalyptus-greenery-big-vector-design-wedding-spring-bouquet-floral-summer-1.svg',
-                      width: 123.64.w,
-                      height: 123.64.h,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        AppImageAsset.flowerhome,
+                        width: 100.w,
+                        height: 100.h,
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      Text(
+                        'Logo',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w800,
+                          fontSize: 60.sp,
+                          color: AppColors.purple,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  width: 240.w,
+                  height: 44.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.h),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search',
+                          suffixIcon: Icon(
+                            Icons.search,
+                            color: AppColors.purple,
+                            size: 32.sp,
+                          ),
+                          hintStyle: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.sp,
+                            color: AppColors.darkgray,
+                          ),
+                          border: InputBorder.none,
+                        ),
+                      ),
                     ),
-                    SizedBox(width: 20.w),
-                    Text(
-                      'Logo',
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        AppImageAsset.logo2,
+                        height: 30.h,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Column(
+            children: [
+              SizedBox(height: 10.h),
+              Text(
+                'Hello User',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20.sp,
+                  color: AppColors.purple,
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Container(
+                height: 80.h,
+                width: 280.w,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.w),
+                    border: Border.all(
+                      color: AppColors.whitepin, // Border color
+                      width: 3,
+                    )),
+                child: Expanded(
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
+                    child: Text(
+                      'Explore our stunning collection of flowers and vibrant plants to brighten every occasion.',
+                      textAlign: TextAlign.start,
                       style: TextStyle(
                         fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 64.sp,
-                        color: Color(0xff3c2367),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        color: AppColors.darkgray,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Container(
+                height: 240.h,
+                width: 320.w,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(28.w),
+                      bottomRight: Radius.circular(6.w),
+                      topLeft: Radius.circular(6.w),
+                      topRight: Radius.circular(6.w),
+                    ),
+                    border: Border.all(
+                      color: AppColors.pink, // Border color
+                      width: 3.w,
+                    )),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      top: -30,
+                      left: 20,
+                      right: 20,
+                      child: Image.asset(
+                        'assets/images/home.png',
+                        width: 200.w,
+                        height: 200.h,
+                      ),
+                    ),
+                    Positioned(
+                      left: 20.h,
+                      right: 20.h,
+                      top: 130.h,
+                      child: SizedBox(
+                        height: 200,
+                        width: 250.w,
+                        child: Column(
+                          children: [
+                            Text(
+                              'Happy Mothers Day',
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w800,
+                                fontSize: 22.sp,
+                                color: AppColors.darkgray,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 6.h,
+                            ),
+                            Text(
+                              'On this special Occasion get 50% discount on the Artificial Silk Roses',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: AppColors.darkgray,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 ),
-                Spacer(),
-                // Search bar
-                Container(
-                  width: 266.w,
-                  height: 44.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22.h),
-                    color: Colors.white,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Search',
-                              hintStyle: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 20.sp,
-                                color: Color(0xff8c8a8c),
-                              ),
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                        Image.asset(
-                          './assets/search-1.svg',
-                          width: 22.w,
-                          height: 22.h,
-                        ),
-                      ],
-                    ),),),],)
-  //             SizedBox(height: 50.h),
-  //             _buildHeader(),
-  //             SizedBox(height: 20.h),
-  //             _buildWelcomeCard(),
-  //             SizedBox(height: 20.h),
-  //             _buildOfferCard(),
-  //             SizedBox(height: 20.h),
-  //             _buildBestSellers(),
-  //             SizedBox(height: 20.h),
-  //             _buildCustomizeGifts(),
-  //             SizedBox(height: 20.h),
-  //             SizedBox(height: 55.h),
-  //            // Image.asset('assets/icons-nav-bar.svg', width: 430.w),
+              ),
             ],
-          ),
-        ),
+          )
+        ],
       ),
     );
   }
-
-  // Widget _buildHeader() {
-  //   return Column(
-  //     children: [
-  //       // Image.asset(
-  //       //   'assets/rectangle-42.svg',
-  //       //   width: 430.w,
-  //       //   height: 297.h,
-  //       // ),
-  //       // Positioned(
-  //       //   left: 16.w,
-  //       //   top: 118.h,
-  //       //   child: Image.asset(
-  //       //     'assets/classic-white-peony-cream-beige-rose-and-ranunculus-flowers-eucalyptus-greenery-big-vector-design-wedding-spring-bouquet-floral-summer-1.svg',
-  //       //     width: 123.64.w,
-  //       //     height: 123.64.h,
-  //       //   ),
-  //       // ),
-  //       Text(
-  //         'Logo',
-  //         style: TextStyle(
-  //           fontFamily: 'Montserrat',
-  //           fontWeight: FontWeight.w800,
-  //           fontSize: 64.sp,
-  //           color: const Color(0xFF3C2367),
-  //         ),
-  //       ),
-  //       // Image.asset(
-  //       //   'assets/rectangle-32.svg',
-  //       //   width: 266.w,
-  //       //   height: 44.h,
-  //       // ),
-  //       SizedBox(height: 20.h),
-  //       Text(
-  //         'Search',
-  //         style: TextStyle(
-  //           fontFamily: 'Roboto',
-  //           fontWeight: FontWeight.w400,
-  //           fontSize: 20.sp,
-  //           color: const Color(0xFF8C8A8C),
-  //         ),
-  //       ),
-  //       // Image.asset(
-  //       //   'assets/search-1.svg',
-  //       //   width: 22.w,
-  //       //   height: 22.h,
-        // ),
-  //     ],
-  //   );
-  // }}
-
-  // Widget _buildWelcomeCard() {
-  //   return Column(
-  //     children: [
-  //       // Image.asset(
-  //       //   'assets/rectangle-83.svg',
-  //       //   width: 323.w,
-  //       //   height: 96.h,
-  //       // ),
-  //       SizedBox(height: 10.h),
-  //       Text(
-  //         'Hello User',
-  //         textAlign: TextAlign.center,
-  //         style: TextStyle(
-  //           fontFamily: 'Montserrat',
-  //           fontWeight: FontWeight.w700,
-  //           fontSize: 20.sp,
-  //           color: const Color(0xFF3C2367),
-  //         ),
-  //       ),
-  //       SizedBox(height: 10.h),
-  //       Text(
-  //         'Explore our stunning collection of flowers and vibrant plants to brighten every occasion.',
-  //         textAlign: TextAlign.center,
-  //         style: TextStyle(
-  //           fontFamily: 'Montserrat',
-  //           fontWeight: FontWeight.w500,
-  //           fontSize: 17.sp,
-  //           color: const Color(0xFF8C8A8C),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-
-  // Widget _buildOfferCard() {
-  //   return Stack(
-  //     children: [
-  //       // Image.asset(
-  //       //   'assets/rectangle-76.svg',
-  //       //   width: 400.w,
-  //       //   height: 342.h,
-  //       // ),
-  //       Positioned(
-  //         left: 20.w,
-  //         top: 20.h,
-  //         child: Text(
-  //           'Happy Mothers Day',
-  //           style: TextStyle(
-  //             fontFamily: 'Montserrat',
-  //             fontWeight: FontWeight.w800,
-  //             fontSize: 24.sp,
-  //             color: const Color(0xFF707070),
-  //           ),
-  //         ),
-  //       ),
-  //       Positioned(
-  //         left: 20.w,
-  //         top: 50.h,
-  //         child: Text(
-  //           'On this special Occasion get 50% discount on the Artificial Silk Roses',
-  //           style: TextStyle(
-  //             fontFamily: 'Montserrat',
-  //             fontWeight: FontWeight.w500,
-  //             fontSize: 16.sp,
-  //             color: const Color(0xFF8C8A8C),
-  //           ),
-  //         ),
-  //       ),
-  //       // Positioned(
-  //       //   left: 20.w,
-  //       //   top: 100.h,
-  //       //   child: Image.asset(
-  //       //     'assets/mixed-artificial-silk-rose-flower-arrangement-in-ceramic-pot-and-acrylic-water-artificial-faux-flower-in-vase-fake-floral-centerpiece-1.svg',
-  //       //     width: 223.w,
-  //       //     height: 223.h,
-  //       //   ),
-  //       // ),
-    //   ],
-    // );
-  // }
 
 //   Widget _buildBestSellers() {
 //     return Column(
@@ -380,17 +360,8 @@ class HomePage extends StatelessWidget {
 //         //   width: 84.11.w,
 //         //   height: 25.07.h,
 //         // ),
-//         Text(
-//           'Add To Cart',
-//           style: TextStyle(
-//             fontFamily: 'Montserrat',
-//             fontWeight: FontWeight.w500,
-//             fontSize: 10.sp,
-//             color: const Color(0xFF3C2367),
-//           ),
-//         ),
+//
 //       ],
 //     );
 //   }
 }
-

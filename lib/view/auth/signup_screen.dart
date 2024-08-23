@@ -13,7 +13,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blue,
+   
       body: ListView(
         children: [
           Image.asset(AppImageAsset.signup),

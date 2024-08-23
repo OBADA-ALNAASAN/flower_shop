@@ -13,6 +13,7 @@ class VerificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +40,9 @@ class VerificationPage extends StatelessWidget {
                           color: AppColors.darkgray,
                           size: 30,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                       ),
                     ),
                   ],
@@ -123,7 +126,7 @@ class VerificationPage extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoutes.home);
+                        Get.offNamed(AppRoutes.home);
                       },
                       child: Container(
                         width: 282.w,
