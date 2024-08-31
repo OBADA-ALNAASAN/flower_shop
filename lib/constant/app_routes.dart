@@ -10,4 +10,5 @@ class AppRoutes {
   static const String mycartpage = "/MycartPage";
   static const String paymentpage = "/PaymentPage";
   static const String sittingpage = "/SittingScreen";
+  static const String payment2page = "/Payment2Page";
 }

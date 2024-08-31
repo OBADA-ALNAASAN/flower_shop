@@ -13,7 +13,7 @@ class VerificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,7 +101,7 @@ class VerificationPage extends StatelessWidget {
                   ),
                   SizedBox(height: 25.h),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       PinInput(),
                       PinInput(),
@@ -126,7 +126,7 @@ class VerificationPage extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.offNamed(AppRoutes.home);
+                        Get.offNamed(AppRoutes.paymentpage);
                       },
                       child: Container(
                         width: 282.w,

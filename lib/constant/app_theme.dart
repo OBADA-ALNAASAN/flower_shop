@@ -8,8 +8,8 @@ class AppTheme {
   );
   static ThemeData customLightTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: AppColors.blue,
-    
-    primaryColor: AppColors.blue,
+    primaryColor: Colors.white,
+  
    
   );
 }

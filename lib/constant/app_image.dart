@@ -9,4 +9,5 @@ class AppImageAsset {
   static const String blueflower = "$rootImages/blueflower.png";
   static const String flowerhome = "$rootImages/flower.png";
   static const String logo2 = "$rootImages/logo2.png";
+  static const String pyment = "$rootImages/pyment.png";
 }

@@ -14,11 +14,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  ScreenUtilInit(
-      child: GetMaterialApp(   debugShowCheckedModeBanner: false,
-      title: 'Splash Screen',
-      theme: AppTheme.customLightTheme,
-      getPages: routes,),
+    return ScreenUtilInit(
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Splash Screen',
+        theme: AppTheme.customLightTheme,
+        getPages: routes,
+      ),
     );
   }
 }

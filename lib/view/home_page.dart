@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       body: ListView(
         children: [
           Container(
@@ -63,23 +63,21 @@ class HomePage extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search',
-                          suffixIcon: Icon(
-                            Icons.search,
-                            color: AppColors.purple,
-                            size: 32.sp,
-                          ),
-                          hintStyle: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16.sp,
-                            color: AppColors.darkgray,
-                          ),
-                          border: InputBorder.none,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search',
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: AppColors.purple,
+                          size: 32.sp,
                         ),
+                        hintStyle: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: AppColors.darkgray,
+                        ),
+                        border: InputBorder.none,
                       ),
                     ),
                   ),
@@ -100,30 +98,31 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          Column(
-            children: [
-              SizedBox(height: 10.h),
-              Text(
-                'Hello User',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20.sp,
-                  color: AppColors.purple,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25.w),
+            child: Column(
+              children: [
+                SizedBox(height: 10.h),
+                Text(
+                  'Hello User',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20.sp,
+                    color: AppColors.purple,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10.h),
-              Container(
-                height: 80.h,
-                width: 280.w,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.w),
-                    border: Border.all(
-                      color: AppColors.whitepin, // Border color
-                      width: 3,
-                    )),
-                child: Expanded(
+                SizedBox(height: 10.h),
+                Container(
+                  height: 80.h,
+                  width: 280.w,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.w),
+                      border: Border.all(
+                        color: AppColors.whitepin, // Border color
+                        width: 3,
+                      )),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
@@ -139,76 +138,93 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Container(
-                height: 240.h,
-                width: 320.w,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(28.w),
-                      bottomRight: Radius.circular(6.w),
-                      topLeft: Radius.circular(6.w),
-                      topRight: Radius.circular(6.w),
-                    ),
-                    border: Border.all(
-                      color: AppColors.pink, // Border color
-                      width: 3.w,
-                    )),
-                child: Stack(
-                  clipBehavior: Clip.none,
+                SizedBox(
+                  height: 28.h,
+                ),
+                Row(
                   children: [
-                    Positioned(
-                      top: -30,
-                      left: 20,
-                      right: 20,
-                      child: Image.asset(
-                        'assets/images/home.png',
-                        width: 200.w,
-                        height: 200.h,
-                      ),
-                    ),
-                    Positioned(
-                      left: 20.h,
-                      right: 20.h,
-                      top: 130.h,
-                      child: SizedBox(
-                        height: 200,
-                        width: 250.w,
-                        child: Column(
-                          children: [
-                            Text(
-                              'Happy Mothers Day',
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w800,
-                                fontSize: 22.sp,
-                                color: AppColors.darkgray,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 6.h,
-                            ),
-                            Text(
-                              'On this special Occasion get 50% discount on the Artificial Silk Roses',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14.sp,
-                                color: AppColors.darkgray,
-                              ),
-                            ),
-                          ],
-                        ),
+                    Text(
+                      'Offers',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18.sp,
+                        color: AppColors.purple,
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 10.h,
+                ),
+                Container(
+                  height: 240.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(28.w),
+                        bottomRight: Radius.circular(6.w),
+                        topLeft: Radius.circular(6.w),
+                        topRight: Radius.circular(6.w),
+                      ),
+                      border: Border.all(
+                        color: AppColors.pink, // Border color
+                        width: 3.w,
+                      )),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned(
+                        top: -30,
+                        left: 20,
+                        right: 20,
+                        child: Image.asset(
+                          'assets/images/home.png',
+                          width: 200.w,
+                          height: 200.h,
+                        ),
+                      ),
+                      Positioned(
+                        left: 20.h,
+                        right: 20.h,
+                        top: 130.h,
+                        child: SizedBox(
+                          height: 200,
+                          width: 250.w,
+                          child: Column(
+                            children: [
+                              Text(
+                                'Happy Mothers Day',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 22.sp,
+                                  color: AppColors.darkgray,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6.h,
+                              ),
+                              Text(
+                                'On this special Occasion get\n 50% discount on the Artificial\n Silk Roses',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14.sp,
+                                  color: AppColors.darkgray,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),

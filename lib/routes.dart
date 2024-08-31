@@ -7,6 +7,7 @@ import 'package:flower_shop/view/flowe_details_page.dart';
 import 'package:flower_shop/view/flower_page.dart';
 import 'package:flower_shop/view/home_page.dart';
 import 'package:flower_shop/view/mycart_page.dart';
+import 'package:flower_shop/view/payment2_screen.dart';
 import 'package:flower_shop/view/payment_page.dart';
 import 'package:flower_shop/view/sitting_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -23,5 +24,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.flowerpage, page: () => const FlowerPage()),
   GetPage(name: AppRoutes.mycartpage, page: () => const MycartPage()),
   GetPage(name: AppRoutes.paymentpage, page: () => const PaymentPage()),
+  GetPage(name: AppRoutes.payment2page, page: () => const Payment2Page()),
   GetPage(name: AppRoutes.home, page: () => const HomePage()),
 ];
