@@ -2,7 +2,7 @@ import 'package:flower_shop/constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class  extends StatelessWidget {
+class PaymentBar extends StatelessWidget {
   const PaymentBar({super.key, required this.onPressed});
   final VoidCallback onPressed;
   @override
