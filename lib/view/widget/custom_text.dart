@@ -12,7 +12,7 @@ class CustomText extends StatelessWidget {
       style: TextStyle(
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w400,
-        fontSize: 18.sp,
+        fontSize: 17.sp,
         color: AppColors.darkgray,
       ),
     );

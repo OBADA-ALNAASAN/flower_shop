@@ -7,23 +7,20 @@ class CustomContainer extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        // width: 80.w,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5), color: Colors.white),
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5), color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.all(14.0),
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w500,
-                fontSize: 14.sp,
-                color: AppColors.purple,
-              ),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w500,
+              fontSize: 14.sp,
+              color: AppColors.purple,
             ),
           ),
         ),

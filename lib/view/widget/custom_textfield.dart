@@ -1,5 +1,6 @@
 import 'package:flower_shop/constant/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, required this.lable});
@@ -8,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 42.h,
       decoration: BoxDecoration(
         color: const Color(0xFFFfffff),
         borderRadius: BorderRadius.circular(10),
@@ -16,7 +18,6 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         // controller: ,
         decoration: InputDecoration(
-          
           labelText: lable,
           labelStyle: const TextStyle(
             fontFamily: 'Roboto',

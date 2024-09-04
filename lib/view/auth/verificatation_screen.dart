@@ -126,7 +126,7 @@ class VerificationPage extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.offNamed(AppRoutes.paymentpage);
+                        Get.offNamed(AppRoutes.bottomNavbar);
                       },
                       child: Container(
                         width: 282.w,
