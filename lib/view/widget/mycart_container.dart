@@ -1,4 +1,4 @@
-import 'package:flower_shop/constant/app_color.dart';
+import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

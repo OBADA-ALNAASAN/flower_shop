@@ -1,4 +1,4 @@
-import 'package:flower_shop/constant/app_color.dart';
+import 'package:flower_shop/core/constant/app_color.dart';
 
 import 'package:flower_shop/view/widget/mycart_container.dart';
 import 'package:flutter/material.dart';
@@ -86,13 +86,9 @@ class MycartPage extends StatelessWidget {
                   Text(
                     'Address: Dummar street A bulding\nnumber 25 ',
                     textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
+                  SizedBox(height: 4.h),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xffD9D9D9),
@@ -108,25 +104,17 @@ class MycartPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 6.h),
                   Text(
                     'Expected Date:  june/26/2024',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
+                  SizedBox(height: 4.h),
                   Text(
                     'Expected Time: 2:30 PM',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
+                  SizedBox(height: 4.h),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xffD9D9D9),
@@ -142,25 +130,17 @@ class MycartPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 6.h),
                   Text(
                     'Delivery: 20\$',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
+                  SizedBox(height: 4.h),
                   Text(
                     'Taxes: 15\$ ',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
+                  SizedBox(height: 4.h),
                   Row(
                     children: [
                       Text(
@@ -174,18 +154,14 @@ class MycartPage extends StatelessWidget {
                       ),
                       Text(
                         '70\$',
-                        style: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
-                          color: AppColors.darkgray,
-                        ),
+                        style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],
                   ),
                 ],
               ),
             ),
+            SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -196,7 +172,7 @@ class MycartPage extends StatelessWidget {
                     width: 150.w,
                     decoration: BoxDecoration(
                       color: AppColors.pink,
-                      borderRadius: BorderRadius.circular(3.0),
+                      borderRadius: BorderRadius.circular(7.0),
                     ),
                     child: Center(
                       child: Text(

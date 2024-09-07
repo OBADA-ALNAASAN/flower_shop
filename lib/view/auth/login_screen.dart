@@ -1,12 +1,11 @@
-import 'package:flower_shop/constant/app_color.dart';
-import 'package:flower_shop/constant/app_image.dart';
-import 'package:flower_shop/constant/app_routes.dart';
+import 'package:flower_shop/core/constant/app_color.dart';
+import 'package:flower_shop/core/constant/app_image.dart';
+import 'package:flower_shop/core/constant/app_routes.dart';
 import 'package:flower_shop/view/widget/custom_button.dart';
 import 'package:flower_shop/view/widget/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -14,7 +13,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: ListView(
         children: [
           Row(
@@ -23,7 +21,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  'Logo',
+                  'Logo'.tr,
                   style: TextStyle(
                     fontSize: 50.sp,
                     fontWeight: FontWeight.bold,
@@ -61,35 +59,33 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 44),
             child: Column(
               children: [
-                const CustomTextField(
-                  lable: 'Email',
+                CustomTextField(
+                  lable: 'Email'.tr,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const CustomTextField(
-                  lable: 'Phone Number',
+                CustomTextField(
+                  lable: 'Phone Number'.tr,
+                  textInputType: TextInputType.phone,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const CustomTextField(
-                  lable: 'Password',
+                CustomTextField(
+                  lable: 'Password'.tr,
+                  obscureText: true,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  'Should be none less than 8 characters',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    color: AppColors.darkgray,
-                  ),
+                Text(
+                  'Should be none less than 8 characters'.tr,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const Text(
-                  'Forget password?',
-                  style: TextStyle(
+                Text(
+                  'Forget password?'.tr,
+                  style: const TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 14,
                     color: Color(0xffff0000),
@@ -106,19 +102,15 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Dont have an account? ',
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 12.sp,
-                              color: AppColors.darkgray,
-                            ),
+                            'Dont have an account?'.tr,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                           InkWell(
                               onTap: () {
                                 Get.toNamed(AppRoutes.signUpScreen);
                               },
                               child: Text(
-                                'Sign up',
+                                'Sign up'.tr,
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.bold,
@@ -141,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(AppRoutes.verificationScreen);
                         },
-                        text: 'Login',
+                        text: 'Login'.tr,
                       )
                     ],
                   ),

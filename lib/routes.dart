@@ -1,4 +1,4 @@
-import 'package:flower_shop/constant/app_routes.dart';
+import 'package:flower_shop/core/constant/app_routes.dart';
 import 'package:flower_shop/view/auth/login_screen.dart';
 import 'package:flower_shop/view/auth/signup_screen.dart';
 import 'package:flower_shop/view/auth/verificatation_screen.dart';

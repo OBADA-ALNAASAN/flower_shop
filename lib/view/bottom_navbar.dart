@@ -1,4 +1,4 @@
-import 'package:flower_shop/constant/app_color.dart';
+import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/controller/homecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,8 +29,8 @@ class BottomNavBar extends StatelessWidget {
       return ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         child: Container(
-          decoration: const BoxDecoration(
-            color: AppColors.blue,
+          decoration: BoxDecoration(
+            color: Theme.of(context).secondaryHeaderColor,
           ),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

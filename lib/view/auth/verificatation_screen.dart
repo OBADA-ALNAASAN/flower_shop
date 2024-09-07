@@ -1,9 +1,10 @@
-import 'package:flower_shop/constant/app_color.dart';
-import 'package:flower_shop/constant/app_image.dart';
-import 'package:flower_shop/constant/app_routes.dart';
+import 'package:flower_shop/core/constant/app_color.dart';
+import 'package:flower_shop/core/constant/app_image.dart';
+import 'package:flower_shop/core/constant/app_routes.dart';
 import 'package:flower_shop/view/widget/pin_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -21,10 +22,10 @@ class VerificationPage extends StatelessWidget {
             Container(
               height: 320.h,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                  color: AppColors.blue,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).secondaryHeaderColor,
                   borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(80))),
+                      const BorderRadius.vertical(bottom: Radius.circular(80))),
               child: Center(
                 child: Stack(
                   children: [
@@ -57,47 +58,27 @@ class VerificationPage extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      'Verification Code',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 26.sp,
-                        color: AppColors.darkgray,
-                      ),
+                      'Verification Code'.tr,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Pleas enter verification code sent to Email address .....@Gmail.com',
+                    'Pleas enter verification code sent to Email address .....@Gmail.com'.tr,
                     textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    'Valid to 10 minuts',
+                    'Valid to 10 minuts'.tr,
                     textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    'Re send code',
+                    'Re send code'.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: AppColors.purple,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   SizedBox(height: 25.h),
                   Row(
@@ -113,14 +94,9 @@ class VerificationPage extends StatelessWidget {
                   ),
                   SizedBox(height: 15.h),
                   Text(
-                    'Verification code consists of\n numbers and letters ',
+                    'Verification code consists of\nnumbers and letters '.tr,
                     textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: AppColors.darkgray,
-                    ),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   SizedBox(height: 20.h),
                   Center(
@@ -129,15 +105,15 @@ class VerificationPage extends StatelessWidget {
                         Get.offNamed(AppRoutes.bottomNavbar);
                       },
                       child: Container(
-                        width: 282.w,
-                        height: 60.h,
+                        width: 260.w,
+                        height: 58.h,
                         decoration: BoxDecoration(
                           color: const Color(0xFFEEE5FF),
-                          borderRadius: BorderRadius.circular(12.r),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          'Submit',
+                          'Submit'.tr,
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w900,

@@ -1,5 +1,5 @@
-import 'package:flower_shop/constant/app_color.dart';
-import 'package:flower_shop/constant/app_routes.dart';
+import 'package:flower_shop/core/constant/app_color.dart';
+import 'package:flower_shop/core/constant/app_routes.dart';
 import 'package:flower_shop/view/widget/circular_button.dart';
 import 'package:flower_shop/view/widget/custom_button.dart';
 import 'package:flower_shop/view/widget/custom_container.dart';
