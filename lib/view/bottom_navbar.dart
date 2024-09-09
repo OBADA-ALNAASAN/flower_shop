@@ -11,6 +11,7 @@ class BottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeController controller = Get.put(HomeController());
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: Obx(() {
         return controller.pages[controller.selectedIndex.value];
       }),

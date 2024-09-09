@@ -1,3 +1,4 @@
+import 'package:flower_shop/controller/auth/logincontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_image.dart';
 import 'package:flower_shop/core/constant/app_routes.dart';
@@ -12,6 +13,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LogincontrollerImp controller = Get.put(LogincontrollerImp());
     return Scaffold(
       body: ListView(
         children: [
@@ -60,20 +62,23 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomTextField(
-                  lable: 'Email'.tr,
+                  textEditingController: controller.email,
+                  label: 'Email'.tr,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 CustomTextField(
-                  lable: 'Phone Number'.tr,
+                  textEditingController: controller.phonenumber,
+                  label: 'Phone Number'.tr,
                   textInputType: TextInputType.phone,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 CustomTextField(
-                  lable: 'Password'.tr,
+                  textEditingController: controller.password,
+                  label: 'Password'.tr,
                   obscureText: true,
                 ),
                 const SizedBox(
@@ -107,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           InkWell(
                               onTap: () {
-                                Get.toNamed(AppRoutes.signUpScreen);
+                                controller.goToSignUp();
                               },
                               child: Text(
                                 'Sign up'.tr,
@@ -131,6 +136,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       CustomButton(
                         onPressed: () {
+                          //controller.login();
                           Get.toNamed(AppRoutes.verificationScreen);
                         },
                         text: 'Login'.tr,

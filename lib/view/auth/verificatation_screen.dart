@@ -1,18 +1,18 @@
+import 'package:flower_shop/controller/auth/verificationcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_image.dart';
 import 'package:flower_shop/core/constant/app_routes.dart';
-import 'package:flower_shop/view/widget/pin_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final OTPController otpController = Get.put(OTPController());
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: SingleChildScrollView(
@@ -64,7 +64,8 @@ class VerificationPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    'Pleas enter verification code sent to Email address .....@Gmail.com'.tr,
+                    'Pleas enter verification code sent to Email address .....@Gmail.com'
+                        .tr,
                     textAlign: TextAlign.start,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
@@ -82,15 +83,40 @@ class VerificationPage extends StatelessWidget {
                   ),
                   SizedBox(height: 25.h),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      PinInput(),
-                      PinInput(),
-                      PinInput(),
-                      PinInput(),
-                      PinInput(),
-                      PinInput(),
-                    ],
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(6, (index) {
+                      return Center(
+                        child: SizedBox(
+                          width: 35,
+                          height: 30,
+                          child: TextField(
+                            controller: otpController.textcontrollers[index],
+                            focusNode: otpController.focusNodes[index],
+                            onChanged: (value) {
+                              otpController.handleOtpChange(value, index);
+                            },
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            maxLength: 1,
+                            decoration: InputDecoration(
+                              hintText: "*",
+                              counterText: '',
+                              enabledBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
+                              // Use contentPadding here
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 10.h), // Adjust vertical padding
+                            ),
+                            style: TextStyle(
+                              fontSize:
+                                  20.sp, // Adjust your font size here if needed
+                              height: 1, // Adjust the line height if needed
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
                   ),
                   SizedBox(height: 15.h),
                   Text(
@@ -102,7 +128,8 @@ class VerificationPage extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.offNamed(AppRoutes.bottomNavbar);
+                        List<String> otp = otpController.getOtp();
+                        print('Entered OTP: ${otp.join('')}');
                       },
                       child: Container(
                         width: 260.w,

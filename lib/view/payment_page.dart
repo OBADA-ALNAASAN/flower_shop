@@ -1,3 +1,4 @@
+import 'package:flower_shop/controller/paymentcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_image.dart';
 import 'package:flower_shop/core/constant/app_routes.dart';
@@ -6,14 +7,14 @@ import 'package:flower_shop/view/widget/custom_textfield.dart';
 import 'package:flower_shop/view/widget/paymentbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    PaymentcontrollerImp controller = Get.put(PaymentcontrollerImp());
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -27,17 +28,27 @@ class PaymentPage extends StatelessWidget {
                 Get.back();
               },
             ),
-            const CustomTextField(lable: 'Name'),
+            CustomTextField(
+              label: 'Name',
+              textEditingController: controller.name,
+            ),
             SizedBox(height: 20.h),
-            const CustomTextField(lable: 'Phone Number'),
+            CustomTextField(
+                textEditingController: controller.phonenumber,
+                label: 'Phone Number'),
             SizedBox(height: 20.h),
-            const CustomTextField(lable: 'Email'),
+            CustomTextField(
+                textEditingController: controller.email, label: 'Email'),
             SizedBox(height: 20.h),
-            const CustomTextField(lable: 'Town/City'),
+            CustomTextField(
+                textEditingController: controller.town, label: 'Town/City'),
             SizedBox(height: 20.h),
-            const CustomTextField(lable: 'Adress'),
+            CustomTextField(
+                textEditingController: controller.adress, label: 'Adress'),
             const Divider(height: 0),
-            const CustomTextField(lable: 'Special Instructions About Adress'),
+            CustomTextField(
+                textEditingController: controller.specialInstructions,
+                label: 'Special Instructions About Adress'),
             SizedBox(height: 20.h),
             Column(
               children: [

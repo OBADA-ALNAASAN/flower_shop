@@ -1,3 +1,4 @@
+import 'package:flower_shop/bindings/initialbindings.dart';
 import 'package:flower_shop/core/constant/app_theme.dart';
 import 'package:flower_shop/core/localization/changelocale.dart';
 import 'package:flower_shop/core/localization/translation.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        initialBinding: Initialbindings(),
         translations: MyTranslatione(),
         locale: controller.language,
         theme: AppTheme.customLightTheme,

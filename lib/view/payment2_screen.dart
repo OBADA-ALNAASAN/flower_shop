@@ -1,3 +1,4 @@
+import 'package:flower_shop/controller/paymentcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_routes.dart';
 import 'package:flower_shop/view/widget/circular_button.dart';
@@ -8,14 +9,14 @@ import 'package:flower_shop/view/widget/custom_textfield.dart';
 import 'package:flower_shop/view/widget/paymentbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 
 class Payment2Page extends StatelessWidget {
   const Payment2Page({super.key});
 
   @override
   Widget build(BuildContext context) {
+    PaymentcontrollerImp controller = Get.put(PaymentcontrollerImp());
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -73,10 +74,16 @@ class Payment2Page extends StatelessWidget {
             const CustomText(
               text: 'Card Holder Full Name',
             ),
-            const CustomTextField(lable: '*********'),
+            CustomTextField(
+              label: '*********',
+              textEditingController: controller.name,
+            ),
             SizedBox(height: 8.h),
             const CustomText(text: 'Card Number'),
-            const CustomTextField(lable: '*********'),
+            CustomTextField(
+              label: '*********',
+              textEditingController: controller.name,
+            ),
             SizedBox(height: 12.h),
             Row(
               children: [
@@ -87,8 +94,9 @@ class Payment2Page extends StatelessWidget {
                     SizedBox(height: 8.h),
                     SizedBox(
                       width: 130.w,
-                      child: const CustomTextField(
-                        lable: '22/5',
+                      child: CustomTextField(
+                        label: '22/5',
+                        textEditingController: controller.name,
                       ),
                     )
                   ],
@@ -103,8 +111,9 @@ class Payment2Page extends StatelessWidget {
                     SizedBox(height: 8.h),
                     SizedBox(
                       width: 130.w,
-                      child: const CustomTextField(
-                        lable: '****',
+                      child: CustomTextField(
+                        label: '****',
+                        textEditingController: controller.name,
                       ),
                     )
                   ],

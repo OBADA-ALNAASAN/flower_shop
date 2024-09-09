@@ -1,3 +1,4 @@
+import 'package:flower_shop/controller/auth/signupcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_image.dart';
 import 'package:flower_shop/view/widget/custom_button.dart';
@@ -11,6 +12,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SignupControllerImp controller = Get.put(SignupControllerImp());
     return Scaffold(
       body: ListView(
         children: [
@@ -94,33 +96,38 @@ class SignUpScreen extends StatelessWidget {
                   height: 15.h,
                 ),
                 CustomTextField(
-                  lable: 'Email'.tr,
+                  textEditingController: controller.email,
+                  label: 'Email'.tr,
                 ),
                 SizedBox(
                   height: 18.h,
                 ),
                 CustomTextField(
-                  lable: 'Phone Number'.tr,
+                  textEditingController: controller.phonenumber,
+                  label: 'Phone Number'.tr,
                   textInputType: TextInputType.phone,
                 ),
                 SizedBox(
                   height: 18.h,
                 ),
                 CustomTextField(
-                  lable: 'User name'.tr,
+                  textEditingController: controller.username,
+                  label: 'User name'.tr,
                 ),
                 SizedBox(
                   height: 18.h,
                 ),
                 CustomTextField(
-                  lable: 'Password'.tr,
+                  textEditingController: controller.password,
+                  label: 'Password'.tr,
                   obscureText: true,
                 ),
                 SizedBox(
                   height: 18.h,
                 ),
                 CustomTextField(
-                  lable: 'Re Password'.tr,
+                  textEditingController: controller.repassword,
+                  label: 'Re Password'.tr,
                   obscureText: true,
                 ),
                 SizedBox(
@@ -158,7 +165,9 @@ class SignUpScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.goToLogin();
+                        },
                         text: 'Sign Up'.tr,
                       ),
                       const SizedBox(

@@ -1,33 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, this.obscureText, this.textInputType, required this.lable});
+  const CustomTextField(
+      {super.key,
+      this.obscureText,
+      this.textInputType,
+      required this.label,
+      required this.textEditingController});
 
-  final String lable;
+  final String label;
+  final TextEditingController textEditingController;
   final bool? obscureText;
   final TextInputType? textInputType;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 42.h,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color(0xffF3E9F5), // Border color
+    return TextField(
+      obscureText: obscureText ?? false,
+      keyboardType: textInputType,
+      controller: textEditingController,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: Theme.of(context).textTheme.labelMedium,
+        enabledBorder: OutlineInputBorder(
+          
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Color(0xffF3E9F5), // لون الحدود
+          ),
         ),
-        color: Theme.of(context).primaryColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: TextField(
-        obscureText: obscureText == null ? false : true,
-        keyboardType:textInputType ,
-        // controller: ,
-        decoration: InputDecoration(
-          labelText: lable,
-          labelStyle: Theme.of(context).textTheme.labelMedium,
-          border: InputBorder.none,
+        focusedBorder: OutlineInputBorder(
+
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.black,
+          ),
         ),
+        filled: true,
+        fillColor: Theme.of(context).primaryColor, // لون الخلفية
+        contentPadding: const EdgeInsets.symmetric(
+            horizontal: 10, vertical: 5),
       ),
     );
   }

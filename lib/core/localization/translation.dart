@@ -26,9 +26,7 @@ class MyTranslatione extends Translations {
       "Re send code":"إعادة إرسال الرمز",
       "Verification code consists of\nnumbers and letters ":"رمز التحقق يتكون من أرقام وحروف",
       "Submit":"إرسال",
-      "":"",
-      "":"",
-      "":"",
+    
     },
     "en":{
       "Logo":"Logo",
@@ -52,10 +50,7 @@ class MyTranslatione extends Translations {
       "Re send code":"Re send code",
       "Verification code consists of\nnumbers and letters ":"Verification code consists of\nnumbers and letters ",
       "Submit":"Submit",
-      "":"",
-      "":"",
-      "":"",
-      "":"",
+     
     },
   };
   
