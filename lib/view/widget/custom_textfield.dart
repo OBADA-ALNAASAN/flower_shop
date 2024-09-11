@@ -6,16 +6,18 @@ class CustomTextField extends StatelessWidget {
       this.obscureText,
       this.textInputType,
       required this.label,
-      required this.textEditingController});
+      required this.textEditingController, required this.valid});
 
   final String label;
+  final String? Function(String?) valid;
   final TextEditingController textEditingController;
   final bool? obscureText;
   final TextInputType? textInputType;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: valid,
       obscureText: obscureText ?? false,
       keyboardType: textInputType,
       controller: textEditingController,
@@ -23,14 +25,12 @@ class CustomTextField extends StatelessWidget {
         labelText: label,
         labelStyle: Theme.of(context).textTheme.labelMedium,
         enabledBorder: OutlineInputBorder(
-          
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
             color: Color(0xffF3E9F5), // لون الحدود
           ),
         ),
         focusedBorder: OutlineInputBorder(
-
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
             color: Colors.black,
@@ -38,8 +38,7 @@ class CustomTextField extends StatelessWidget {
         ),
         filled: true,
         fillColor: Theme.of(context).primaryColor, // لون الخلفية
-        contentPadding: const EdgeInsets.symmetric(
-            horizontal: 10, vertical: 5),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flower_shop/controller/paymentcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_image.dart';
 import 'package:flower_shop/core/constant/app_routes.dart';
+import 'package:flower_shop/core/function/validinput.dart';
 import 'package:flower_shop/view/widget/custom_button.dart';
 import 'package:flower_shop/view/widget/custom_textfield.dart';
 import 'package:flower_shop/view/widget/paymentbar.dart';
@@ -28,25 +29,43 @@ class PaymentPage extends StatelessWidget {
                 Get.back();
               },
             ),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
               label: 'Name',
               textEditingController: controller.name,
             ),
             SizedBox(height: 20.h),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                 textEditingController: controller.phonenumber,
                 label: 'Phone Number'),
             SizedBox(height: 20.h),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                 textEditingController: controller.email, label: 'Email'),
             SizedBox(height: 20.h),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                 textEditingController: controller.town, label: 'Town/City'),
             SizedBox(height: 20.h),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                 textEditingController: controller.adress, label: 'Adress'),
             const Divider(height: 0),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                 textEditingController: controller.specialInstructions,
                 label: 'Special Instructions About Adress'),
             SizedBox(height: 20.h),

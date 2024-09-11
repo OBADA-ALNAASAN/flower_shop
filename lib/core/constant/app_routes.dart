@@ -12,4 +12,5 @@ class AppRoutes {
   static const String sittingpage = "/SittingScreen";
   static const String payment2page = "/Payment2Page";
   static const String bottomNavbar = "/BottomNavbar";
+  static const String confirmScreen = "/ConfirmScreen";
 }

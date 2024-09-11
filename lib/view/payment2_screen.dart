@@ -1,6 +1,7 @@
 import 'package:flower_shop/controller/paymentcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_routes.dart';
+import 'package:flower_shop/core/function/validinput.dart';
 import 'package:flower_shop/view/widget/circular_button.dart';
 import 'package:flower_shop/view/widget/custom_button.dart';
 import 'package:flower_shop/view/widget/custom_container.dart';
@@ -74,13 +75,20 @@ class Payment2Page extends StatelessWidget {
             const CustomText(
               text: 'Card Holder Full Name',
             ),
-            CustomTextField(
+            CustomTextField(valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
               label: '*********',
               textEditingController: controller.name,
             ),
             SizedBox(height: 8.h),
             const CustomText(text: 'Card Number'),
             CustomTextField(
+              valid: (val){
+                    return validInput(val!, 8, 100, 'email');
+
+                  },
               label: '*********',
               textEditingController: controller.name,
             ),
@@ -95,6 +103,10 @@ class Payment2Page extends StatelessWidget {
                     SizedBox(
                       width: 130.w,
                       child: CustomTextField(
+                        valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                         label: '22/5',
                         textEditingController: controller.name,
                       ),
@@ -112,6 +124,10 @@ class Payment2Page extends StatelessWidget {
                     SizedBox(
                       width: 130.w,
                       child: CustomTextField(
+                        valid: (val){
+
+                    return validInput(val!, 8, 100, 'email');
+                  },
                         label: '****',
                         textEditingController: controller.name,
                       ),

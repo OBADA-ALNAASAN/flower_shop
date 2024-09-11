@@ -7,26 +7,31 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class Crud {
-  Future<Either<StatusRequest, Map>> postData(String linkUrl, Map data) async {
+ Future<Either<StatusRequest, Map>> postData(String linkUrl, Map data) async {
+  if (await checkInternet()) {
     try {
-      if (await checkInternet()) {
-        var response = await http.post(Uri.parse(linkUrl), body: data);
-        print(response.statusCode);
-        if (response.statusCode == 200 || response.statusCode == 201) {
-          Map responsebody = jsonDecode(response.body);
-          return Right(responsebody);
-        } else {
-          Map responsebody = jsonDecode(response.body);
-          Get.defaultDialog(
-              title: "Warning", middleText: responsebody['message']);
-          return const Left(StatusRequest.serverfailure);
-        }
+      var response = await http.post(
+        Uri.parse(linkUrl),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(data),
+      );
+
+      Map responsebody = jsonDecode(response.body);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return Right(responsebody);
       } else {
-        return const Left(StatusRequest.noInternet);
+        Get.defaultDialog(
+            title: "Warning", middleText: responsebody['message'].toString());
+        return const Left(StatusRequest.serverfailure);
       }
     } catch (e) {
-    
+      Get.defaultDialog(
+          title: "Error", middleText: "Something went wrong: $e");
       return const Left(StatusRequest.serverexiption);
     }
+  } else { //Bmwm3@e94
+    return const Left(StatusRequest.noInternet);
   }
+}
+
 }

@@ -1,4 +1,4 @@
-import 'package:flower_shop/controller/auth/verificationcontroller.dart';
+import 'package:flower_shop/controller/auth/confirmcodecontroller.dart';
 import 'package:flower_shop/core/class/statusrequest.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/core/constant/app_image.dart';
@@ -6,18 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class VerificationPage extends StatelessWidget {
-  const VerificationPage({super.key});
+class ConfirmScreen extends StatelessWidget {
+  const ConfirmScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => VerificatonControllerImp(), fenix: true);
+    Get.lazyPut(() => ConfirmcodecontrollerImp(), fenix: true);
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: GetBuilder<VerificatonControllerImp>(builder: (controller) {
+      body: GetBuilder<ConfirmcodecontrollerImp>(builder: (controller) {
         return controller.statusRequest == StatusRequest.loading
-            ? const CircularProgressIndicator()
+            ? const Center(child: CircularProgressIndicator())
             : Form(
                 key: controller.formstate,
                 child: SingleChildScrollView(
@@ -84,7 +84,7 @@ class VerificationPage extends StatelessWidget {
                             SizedBox(height: 4.h),
                             InkWell(
                               onTap: () {
-                                controller.resendVerificationCode();
+                                controller.resend2facode();
                               },
                               child: Text(
                                 'Re send code'.tr,
@@ -147,8 +147,6 @@ class VerificationPage extends StatelessWidget {
                             Center(
                               child: GestureDetector(
                                 onTap: () async {
-                                  controller.getOtp();
-
                                   controller.goToBottom(controller.getOtp());
                                 },
                                 child: Container(

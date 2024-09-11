@@ -1,4 +1,5 @@
 import 'package:flower_shop/core/constant/app_routes.dart';
+import 'package:flower_shop/view/auth/confirm_screen.dart';
 import 'package:flower_shop/view/auth/login_screen.dart';
 import 'package:flower_shop/view/auth/signup_screen.dart';
 import 'package:flower_shop/view/auth/verificatation_screen.dart';
@@ -28,4 +29,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.payment2page, page: () => const Payment2Page()),
   GetPage(name: AppRoutes.home, page: () => const HomePage()),
   GetPage(name: AppRoutes.bottomNavbar, page: () => const BottomNavbar()),
+  GetPage(name: AppRoutes.confirmScreen, page: () => const ConfirmScreen()),
 ];

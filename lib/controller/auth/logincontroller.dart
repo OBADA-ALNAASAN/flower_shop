@@ -15,24 +15,29 @@ class LogincontrollerImp extends Logincontroller {
   late TextEditingController password;
   late TextEditingController phonenumber;
   LoginData loginData = LoginData(Get.find());
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
   List data = [];
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   @override
   login() async {
-    statusRequest = StatusRequest.loading;
-    var response = await loginData.postData(email.text, password.text);
-    print(response);
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response['success']==false) {
-        Get.offNamed(AppRoutes.bottomNavbar);
-      } else {
-        Get.defaultDialog(
-            title: "Warning", middleText: "The identifier field is required");
-        statusRequest = StatusRequest.failure;
+    if (formstate.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      var response = await loginData.postData(email.text, password.text);
+      print(response);
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['success']) {
+          Get.offNamed(AppRoutes.confirmScreen, arguments: {
+            "email":email.text
+          });
+        } else {
+          Get.defaultDialog(
+              title: "Warning", middleText: "The identifier field is required");
+          statusRequest = StatusRequest.failure;
+        }
       }
-    }
-    update();
+      update();
+    }else{}
   }
 
   @override
