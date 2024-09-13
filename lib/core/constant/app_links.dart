@@ -8,4 +8,5 @@ class AppLinks {
   static const String logout = "$server/logout";
   static const String resendverificationcode = "$server/resend-verification-code";
   static const String resend2facode = "$server/resend-2fa-code";
+  static const String refreshtoken = "$server/refresh-token";
 }

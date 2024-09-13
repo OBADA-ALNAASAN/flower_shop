@@ -22,14 +22,14 @@ class LogincontrollerImp extends Logincontroller {
   login() async {
     if (formstate.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await loginData.postData(email.text, password.text);
       print(response);
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['success']) {
-          Get.offNamed(AppRoutes.confirmScreen, arguments: {
-            "email":email.text
-          });
+          Get.offNamed(AppRoutes.confirmScreen,
+              arguments: {"email": email.text});
         } else {
           Get.defaultDialog(
               title: "Warning", middleText: "The identifier field is required");
@@ -37,7 +37,7 @@ class LogincontrollerImp extends Logincontroller {
         }
       }
       update();
-    }else{}
+    } else {}
   }
 
   @override

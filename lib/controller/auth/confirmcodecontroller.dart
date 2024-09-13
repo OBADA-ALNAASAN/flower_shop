@@ -3,6 +3,7 @@ import 'package:flower_shop/core/constant/app_routes.dart';
 import 'package:flower_shop/core/data/remote/auth/confirmdata.dart';
 import 'package:flower_shop/core/data/remote/auth/resend2facode.dart';
 import 'package:flower_shop/core/function/handlingdata.dart';
+import 'package:flower_shop/core/services/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,7 @@ abstract class Confirmcodecontroller extends GetxController {
 class ConfirmcodecontrollerImp extends Confirmcodecontroller {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   Confirmdata confirmdata = Confirmdata(Get.find());
+
   Resend2facodeData resend2facodeData = Resend2facodeData(Get.find());
   String? email;
   var otp = ''.obs;
@@ -41,6 +43,9 @@ class ConfirmcodecontrollerImp extends Confirmcodecontroller {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['success']) {
+        await MyServices.setdata(key: 'token', value: response['access_token']);
+
+        print(response['access_token']);
         Get.offNamed(AppRoutes.bottomNavbar);
       } else {
         Get.defaultDialog(
@@ -54,17 +59,16 @@ class ConfirmcodecontrollerImp extends Confirmcodecontroller {
   @override
   resend2facode() async {
     statusRequest = StatusRequest.loading;
-    update();
+
     var response = await resend2facodeData.postData(email!);
     print(response);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['success']) {
         Get.defaultDialog(
-            title: "Warning", middleText: response['message'].toString());
+            title: "Warning", middleText: 'please check your email');
       } else {
-        Get.defaultDialog(
-            title: "Warning", middleText: response['message'].toString());
+        Get.defaultDialog(title: "Warning", middleText: 'error');
         statusRequest = StatusRequest.failure;
       }
     }

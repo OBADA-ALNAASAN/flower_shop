@@ -18,7 +18,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       body: GetBuilder<SignupControllerImp>(builder: (controller) {
         return controller.statusRequest == StatusRequest.loading
-            ? const CircularProgressIndicator()
+            ? const Center(child: CircularProgressIndicator()) 
             : Form(
                 key: controller.formstate,
                 child: ListView(

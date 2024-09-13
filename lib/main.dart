@@ -1,4 +1,5 @@
 import 'package:flower_shop/bindings/initialbindings.dart';
+import 'package:flower_shop/core/constant/app_constan.dart';
 import 'package:flower_shop/core/constant/app_theme.dart';
 import 'package:flower_shop/core/localization/changelocale.dart';
 import 'package:flower_shop/core/localization/translation.dart';
@@ -11,6 +12,8 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
+  token = MyServices.getData(key: 'token');
+  print('token:$token');
   runApp(const MyApp());
 }
 

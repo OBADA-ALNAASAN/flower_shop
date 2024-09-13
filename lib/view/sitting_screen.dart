@@ -1,3 +1,4 @@
+import 'package:flower_shop/controller/settingcontroller.dart';
 import 'package:flower_shop/core/constant/app_color.dart';
 import 'package:flower_shop/view/widget/text_setting.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class SittingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingcontrollerImp settingcontrollerImp = SettingcontrollerImp();
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView(
@@ -15,8 +17,8 @@ class SittingScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
                 color: Theme.of(context).secondaryHeaderColor,
-                borderRadius: const BorderRadius.vertical(
-                    bottom: Radius.circular(45))),
+                borderRadius:
+                    const BorderRadius.vertical(bottom: Radius.circular(45))),
             child: Column(
               children: [
                 Padding(
@@ -65,10 +67,11 @@ class SittingScreen extends StatelessWidget {
                           const TextSetting(text: 'Legal Information'),
                           const TextSetting(text: 'About us'),
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(vertical: 4),
+                            padding: const EdgeInsets.symmetric(vertical: 4),
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                settingcontrollerImp.logout();
+                              },
                               child: Text(
                                 'Log Out',
                                 style: TextStyle(
@@ -98,10 +101,9 @@ class SittingScreen extends StatelessWidget {
               ],
             ),
           ),
-          
-               Image.asset(
-                'assets/images/settingbackground.png',
-              )
+          Image.asset(
+            'assets/images/settingbackground.png',
+          )
         ],
       ),
     );
