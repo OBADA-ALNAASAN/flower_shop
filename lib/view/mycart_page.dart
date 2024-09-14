@@ -9,10 +9,7 @@ class MycartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: SafeArea(
-        child: ListView(
+    return  ListView(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -190,8 +187,7 @@ class MycartPage extends StatelessWidget {
               ],
             ),
           ],
-        ),
-      ),
+       
     );
   }
 }

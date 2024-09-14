@@ -17,6 +17,7 @@ class Crud {
         );
 
         Map responsebody = jsonDecode(response.body);
+        print(response.statusCode);
         if (response.statusCode == 200 || response.statusCode == 201) {
           return Right(responsebody);
         } else {
@@ -29,10 +30,10 @@ class Crud {
             title: "Error", middleText: "Something went wrong: $e");
         return const Left(StatusRequest.serverexiption);
       }
-    } else { Get.snackbar('', 'there is no internet');
+    } else {
+      Get.snackbar('', 'there is no internet');
       //Bmwm3@e94
       return const Left(StatusRequest.noInternet);
-     
     }
   }
 }

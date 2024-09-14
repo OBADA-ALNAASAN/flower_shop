@@ -10,12 +10,14 @@ class BottomNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController controller = Get.put(HomeController());
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Obx(() {
-        return controller.pages[controller.selectedIndex.value];
-      }),
-      bottomNavigationBar: const BottomNavBar(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: Obx(() {
+          return controller.pages[controller.selectedIndex.value];
+        }),
+        bottomNavigationBar: const BottomNavBar(),
+      ),
     );
   }
 }

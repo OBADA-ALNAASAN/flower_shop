@@ -10,9 +10,7 @@ class SittingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingcontrollerImp settingcontrollerImp = SettingcontrollerImp();
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
+    return  ListView(
         children: [
           Container(
             decoration: BoxDecoration(
@@ -105,7 +103,7 @@ class SittingScreen extends StatelessWidget {
             'assets/images/settingbackground.png',
           )
         ],
-      ),
+      
     );
   }
 }
