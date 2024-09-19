@@ -36,4 +36,29 @@ class Crud {
       return const Left(StatusRequest.noInternet);
     }
   }
+  
+  Future<Either<StatusRequest, Map>> getData(String linkUrl) async {
+    if (await checkInternet()) {
+      try {
+        var response = await http.get(Uri.parse(linkUrl));
+
+        Map responsebody = jsonDecode(response.body);
+        print(response.statusCode);
+        if (response.statusCode == 200 || response.statusCode == 201) {
+          return Right(responsebody);
+        } else {
+          Get.defaultDialog(
+              title: "Warning", middleText: responsebody['message'].toString());
+          return const Left(StatusRequest.serverfailure);
+        }
+      } catch (e) {
+        Get.defaultDialog(
+            title: "Error", middleText: "Something went wrong: $e");
+        return const Left(StatusRequest.serverexiption);
+      }
+    } else {
+      Get.snackbar('', 'There is no internet');
+      return const Left(StatusRequest.noInternet);
+    }
+  }
 }

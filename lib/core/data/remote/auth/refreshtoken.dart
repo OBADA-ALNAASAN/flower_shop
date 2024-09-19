@@ -5,9 +5,7 @@ class Refreshtoken {
   Crud crud;
   Refreshtoken(this.crud);
   postData(String token) async {
-    var response = await crud.postData(AppLinks.refreshtoken, {
-      "Token": token,
-    });
+    var response = await crud.getData(AppLinks.refreshtoken);
     return response.fold((l) => l, (r) => r);
   }
 }
